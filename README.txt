@@ -10,12 +10,15 @@ To get started with this project, you will need to have Java and Maven installed
 
 The Employee Manager API provides the following endpoints:
 
-- GET: http://localhost:8080//employee/all - retrieve a list of all employees
-- GET: http://localhost:8080//employees/find/{id} - retrieve an employee by ID
-- POST: http://localhost:8080//employees/add - create a new employee
-- PUT: http://localhost:8080/employees - update an existing employee
-- DELETE: http://localhost:8080/employees/delete/{id} - delete an employee by ID
+- GET /employees - retrieve a list of all employees
+- GET /employees/{id} - retrieve an employee by ID
+- POST /employees - create a new employee
+- PUT /employees/{id} - update an existing employee
+- DELETE /employees/{id} - delete an employee by ID
 
+## Authentication and Authorization
+
+The Employee Manager API includes security features such as authentication and authorization, ensuring that only authorized users can access and modify employee data. Users must authenticate using a username and password to access the API endpoints.
 
 ## Error Handling and Logging
 
