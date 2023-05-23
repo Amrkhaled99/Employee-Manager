@@ -1,4 +1,4 @@
-## Employee Manager REST API:
+Employee Manager REST API:
 Employee Manager is a simple REST API project that allows users to manage employee data using Spring Boot and MySQL database. The API provides a set of endpoints for creating, updating, and deleting employee records, and includes features such as search and filtering capabilities, security, and error handling.
 
 
