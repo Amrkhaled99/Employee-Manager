@@ -5,12 +5,14 @@ import jakarta.persistence.*;
 import java.io.Serializable;
 
 @Entity
+@Table(name = "hr_employees")
+
 public class Employee implements Serializable {
 
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    @Column(nullable = false,updatable = false)
+    @Column(name = "emp_id",nullable = false,updatable = false)
     private long id;
     private String name;
     private String email;
@@ -18,20 +20,33 @@ public class Employee implements Serializable {
     private String phone;
     private String imgUrl;
 
+    private double salary;
+
     @Column(nullable = false,updatable = false)
     private String employeeCode;
 
 
+    @ManyToOne
+    @JoinColumn(name = "depart_id")
+    private Department department;
+
+
+
+
     public Employee() {
     }
-    public Employee(String name, String email, String jobTitle, String phone, String imgUrl, String employeeCode) {
+    public Employee(String name, String email, String jobTitle, String phone, String imgUrl, String employeeCode, Department department) {
         this.name = name;
         this.email = email;
         this.jobTitle = jobTitle;
         this.phone = phone;
         this.imgUrl = imgUrl;
         this.employeeCode = employeeCode;
+        this.department = department;
     }
+
+
+
 
 
     public long getId() {
@@ -86,11 +101,27 @@ public class Employee implements Serializable {
         return employeeCode;
     }
 
+
+    public Department getDepartment() {
+        return department;
+    }
+
+    public void setDepartment(Department department) {
+        this.department = department;
+    }
+
     public void setEmployeeCode(String employeeCode) {
         this.employeeCode = employeeCode;
     }
 
 
+    public double getSalary() {
+        return salary;
+    }
+
+    public void setSalary(double salary) {
+        this.salary = salary;
+    }
 
     @Override
     public String toString() {
